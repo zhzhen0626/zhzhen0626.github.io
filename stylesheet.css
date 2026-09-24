@@ -175,15 +175,43 @@ body > table {
 }
 
 .fingervip-crop {
-  width: 200px;
+  position: relative;
+  width: 230px;
   max-width: 100%;
+  height: 180px;
   margin: 0 auto;
 }
 
 .fingervip-crop img {
   display: block;
-  width: 100%;
+  transition: opacity .2s ease-in-out;
+}
+
+.fingervip-static {
+  width: 200px;
+  max-width: 100%;
   height: 180px;
+  margin: 0 auto;
+}
+
+.fingervip-animation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fingervip-publication:hover .fingervip-static,
+.fingervip-publication:focus-within .fingervip-static {
+  opacity: 0;
+}
+
+.fingervip-publication:hover .fingervip-animation,
+.fingervip-publication:focus-within .fingervip-animation {
+  opacity: 1;
 }
 
 .experience-item {
@@ -192,9 +220,16 @@ body > table {
   gap: 18px;
 }
 
+.experience-item,
+.experience-item strong,
+.experience-item p,
+.experience-item a {
+  font-size: 13px;
+}
+
 .institution-logo {
-  width: 90px;
-  height: 64px;
+  width: 80px;
+  height: 56px;
   object-fit: contain;
   flex-shrink: 0;
 }
